@@ -92,14 +92,9 @@ void onMyButton(CCObject *)
 class PopupMenu : public geode::Popup<std::string const &>
 {
 
-
-
 protected:
 	bool setup(std::string const &value) override
 	{
-
-		
-
 
 		auto winSize = CCDirector::sharedDirector()->getWinSize();
 
@@ -137,7 +132,6 @@ protected:
 		toggleBarBTN->setPositionY(winSize.height - 101.f);
 		toggleBarBTN->setID("toggle-bar-btn"_spr);
 		this->addChild(toggleBarBTN);
-
 
 		return true;
 	}
@@ -195,6 +189,4 @@ class $modify(EditBtn, PauseLayer)
 };
 
 #include <Geode/modify/PlayLayer.hpp>
-class $modify(EditedBar, PlayLayer){
-
-};
+class $modify(EditedBar, PlayLayer){};
