@@ -111,8 +111,8 @@ protected:
 		settingsSprite->setID("settings-sprite"_spr);
 		auto settingsBtn = CCMenuItemSpriteExtra::create(settingsSprite, this, menu_selector(PopupMenu::openSettingsMenu));
 		auto menu = CCMenu::create(settingsBtn, nullptr);
-		menu->setPositionX(winSize.width - 0.f);
-		menu->setPositionY(winSize.height - 0.f);
+		menu->setPositionX(winSize.width - 387.f);
+		menu->setPositionY(winSize.height - 222.f);
 		menu->setID("settings-menu"_spr);
 		this->addChild(menu);
 
