@@ -89,12 +89,18 @@ void onMyButton(CCObject *)
 }
 }
 ;
-
 class PopupMenu : public geode::Popup<std::string const &>
 {
+
+
+
 protected:
 	bool setup(std::string const &value) override
 	{
+
+		
+
+
 		auto winSize = CCDirector::sharedDirector()->getWinSize();
 
 		// convenience function provided by Popup
@@ -112,9 +118,26 @@ protected:
 		auto settingsBtn = CCMenuItemSpriteExtra::create(settingsSprite, this, menu_selector(PopupMenu::openSettingsMenu));
 		auto menu = CCMenu::create(settingsBtn, nullptr);
 		menu->setPositionX(winSize.width - 387.f);
-		menu->setPositionY(winSize.height - 222.f);
+		menu->setPositionY(winSize.height - (222.f - 13.5f));
 		menu->setID("settings-menu"_spr);
 		this->addChild(menu);
+
+		// Toggable bar
+		// [6] cocos2d::CCSprite == Progress bar
+		// [9] cocos2d::CCLabelBMFont == Label
+
+		// Progress Bar button + label
+		auto barIsHidden = false;
+		auto superSpriteToUse = barIsHidden ? "GJ_checkOn_001.png" : "GJ_checkOff_001.png";
+		auto checkOffBtnSpr = CCSprite::createWithSpriteFrameName(superSpriteToUse);
+
+		auto toggleBarBTN = CCMenuItemSpriteExtra::create(
+			checkOffBtnSpr, this, menu_selector(PopupMenu::hideProgressBar));
+		toggleBarBTN->setPositionX(winSize.width - 350.f);
+		toggleBarBTN->setPositionY(winSize.height - 101.f);
+		toggleBarBTN->setID("toggle-bar-btn"_spr);
+		this->addChild(toggleBarBTN);
+
 
 		return true;
 	}
@@ -124,6 +147,19 @@ public:
 	{
 		geode::openSettingsPopup(Mod::get());
 	};
+
+	void hideProgressBar(CCObject *)
+	{
+		auto btn = this->getChildByID("toggle-bar-btn");
+		auto bar = this->getChildByID("toggle-bar");
+		auto label = this->getChildByID("toggle-bar-label");
+
+		auto barIsHidden = !bar->isVisible();
+		auto superSpriteToUse = barIsHidden ? "GJ_checkOn_001.png" : "GJ_checkOff_001.png";
+		auto checkOffBtnSpr = CCSprite::createWithSpriteFrameName(superSpriteToUse);
+		barIsHidden ? bar->setVisible(true) : bar->setVisible(false);
+	};
+
 	static PopupMenu *create(std::string const &text)
 	{
 		auto ret = new PopupMenu();
