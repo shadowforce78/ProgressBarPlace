@@ -1,0 +1,31 @@
+{
+	"geode": "2.0.0-beta.19",
+	"gd": "2.204",
+	"version": "v1.0.0-beta.1",
+	"id": "saumondeluxe.progressbarplace",
+	"name": "ProgressBarPlace",
+	"developer": "SaumonDeLuxe",
+	"description": "This mod will allow you to move the progress bar where you want on the screen",
+	"settings": {
+		"xPosition": {
+			"name": "X",
+            "type": "float",
+            "default": 0,
+            "min": -569,
+            "max": 569,
+            "control": {
+                "slider": true
+            }
+		},
+		"yPosition": {
+			"name": "Y",
+            "type": "float",
+            "default": 0,
+            "min": -10,
+            "max": 10,
+            "control": {
+                "slider": true
+            }
+		}
+	}
+}
