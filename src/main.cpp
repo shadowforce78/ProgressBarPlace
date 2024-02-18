@@ -26,4 +26,13 @@ class $modify(EditBtn, PauseLayer)
 };
 
 #include <Geode/modify/PlayLayer.hpp>
-class $modify(EditedBar, PlayLayer){};
+class $modify(PlayLayer){
+	CCSprite* progressBar;
+
+	bool progressBarState = Mod::get()->getSettingValue<bool>("progressBarState");
+
+	// if (m_fields->progressBar == nullptr)
+	// {
+	// 	// https://github.com/FireMario211/Prism-Menu/blob/ab66db14115703bc6710a41c4aeb5be1979070e1/src/main.cpp#L378
+	// }
+};

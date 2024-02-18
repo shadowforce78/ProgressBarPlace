@@ -26,6 +26,16 @@
             "control": {
                 "slider": true
             }
+		},
+		"progressBarState":{
+			"name": "Progress Bar",
+			"type": "bool",
+			"default": false
+		},
+		"progressBarColor":{
+			"name": "Color of the progress bar",
+			"type": "color",
+			"default": "#FF0000"
 		}
 	}
 }
