@@ -2,6 +2,7 @@
  * Include the Geode headers.
  */
 #include <Geode/Geode.hpp>
+#include <Geode/ui/GeodeUI.hpp>
 
 /**
  * Brings cocos2d and all Geode namespaces to the current scope.
@@ -89,13 +90,56 @@ void onMyButton(CCObject *)
 }
 ;
 
+class PopupMenu : public geode::Popup<std::string const &>
+{
+protected:
+	bool setup(std::string const &value) override
+	{
+		auto winSize = CCDirector::sharedDirector()->getWinSize();
+
+		// convenience function provided by Popup
+		// for adding/setting a title to the popup
+		this->setTitle("Hi mom!");
+
+		auto label = CCLabelBMFont::create(value.c_str(), "bigFont.fnt");
+		label->setPosition(winSize / 2);
+		this->addChild(label);
+
+		// Settings for the popup
+		auto settingsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png");
+		auto settingsBtn = CCMenuItemSpriteExtra::create(settingsSprite, this, menu_selector(PopupMenu::openSettingsMenu));
+		auto menu = CCMenu::create(settingsBtn, nullptr);
+		menu->setPosition(winSize/2 - 20.f);
+		this->addChild(menu);
+
+		return true;
+	}
+
+public:
+	void openSettingsMenu(CCObject *)
+	{
+		geode::openSettingsPopup(Mod::get());
+	};
+	static PopupMenu *create(std::string const &text)
+	{
+		auto ret = new PopupMenu();
+		if (ret && ret->init(240.f, 160.f, text))
+		{
+			ret->autorelease();
+			return ret;
+		}
+		CC_SAFE_DELETE(ret);
+		return nullptr;
+	}
+};
+
 #include <Geode/modify/PauseLayer.hpp>
 class $modify(EditBtn, PauseLayer)
 {
 
-	void EditFunction(CCObject * taret)
+	void EditFunction(CCObject *)
 	{
-		FLAlertLayer::create("Geode", "Hello from my custom mod!", "OK")->show();
+		PopupMenu::create("Hello, world!")->show();
 	};
 
 	void customSetup()
@@ -107,5 +151,10 @@ class $modify(EditBtn, PauseLayer)
 		btn->setID("edit-button"_spr);
 		menu->addChild(btn);
 		menu->updateLayout();
-		};
+	};
+};
+
+#include <Geode/modify/PlayLayer.hpp>
+class $modify(EditedBar, PlayLayer){
+
 };

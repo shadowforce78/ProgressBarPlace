@@ -11,8 +11,8 @@
 			"name": "X",
             "type": "float",
             "default": 0,
-            "min": -569,
-            "max": 569,
+            "min": -10,
+            "max": 10,
             "control": {
                 "slider": true
             }
