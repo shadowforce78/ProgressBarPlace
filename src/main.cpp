@@ -107,9 +107,13 @@ protected:
 
 		// Settings for the popup
 		auto settingsSprite = CCSprite::createWithSpriteFrameName("GJ_optionsBtn_001.png");
+		settingsSprite->setScale(0.5f);
+		settingsSprite->setID("settings-sprite"_spr);
 		auto settingsBtn = CCMenuItemSpriteExtra::create(settingsSprite, this, menu_selector(PopupMenu::openSettingsMenu));
 		auto menu = CCMenu::create(settingsBtn, nullptr);
-		menu->setPosition(winSize/2 - 20.f);
+		menu->setPositionX(winSize.width - 0.f);
+		menu->setPositionY(winSize.height - 0.f);
+		menu->setID("settings-menu"_spr);
 		this->addChild(menu);
 
 		return true;
