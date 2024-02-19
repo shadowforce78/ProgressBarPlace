@@ -9,7 +9,6 @@ class $modify(EditBtn, PauseLayer)
 
 	void EditFunction(CCObject *)
 	{
-
 		geode::openSettingsPopup(Mod::get());
 	};
 
