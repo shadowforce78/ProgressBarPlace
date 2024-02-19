@@ -26,13 +26,47 @@ class $modify(EditBtn, PauseLayer)
 };
 
 #include <Geode/modify/PlayLayer.hpp>
-class $modify(PlayLayer){
-	CCSprite* progressBar;
+#include "Utils.hpp"
+
+
+
+class $modify(PlayLayer)
+{
+	
+	CCSprite *progressBar;
+	CCLabelBMFont *percentLabel;
 
 	bool progressBarState = Mod::get()->getSettingValue<bool>("progressBarState");
+	ccColor3B progressBarColor = Mod::get()->getSettingValue<ccColor3B>("progressBarColor");
 
-	// if (m_fields->progressBar == nullptr)
-	// {
-	// 	// https://github.com/FireMario211/Prism-Menu/blob/ab66db14115703bc6710a41c4aeb5be1979070e1/src/main.cpp#L378
-	// }
+	void postUpdate(float p0)
+	{
+		PlayLayer::postUpdate(p0);
+		if (m_fields->progressBar == nullptr || m_fields->percentLabel == nullptr)
+		{
+			for (size_t i = 0; i < this->getChildrenCount(); i++)
+			{
+				auto obj = this->getChildren()->objectAtIndex(i);
+				if (Utils::getNodeName(obj) == "cocos2d::CCLabelBMFont" && m_fields->percentLabel == nullptr)
+				{
+					auto labelTest = static_cast<CCLabelBMFont *>(obj);
+					if (strlen(labelTest->getString()) < 6)
+					{
+						m_fields->percentLabel = labelTest;
+					}
+				}
+				else if (Utils::getNodeName(obj) == "cocos2d::CCSprite" && m_fields->progressBar == nullptr)
+				{
+					m_fields->progressBar = static_cast<CCSprite *>(obj);
+				}
+			}
+		}
+		else
+		{
+
+			// m_fields->progressBar->setVisible(progressBarState);
+			m_fields->progressBar->setColor(progressBarColor);
+			// m_fields->percentLabel->setVisible(progressBarState);
+		}
+	}
 };
