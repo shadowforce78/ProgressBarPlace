@@ -68,16 +68,42 @@ class $modify(PlayLayer)
 			float progressLabelPositionX = Mod::get()->getSettingValue<double>("xPositionLabel");
 			float progressLabelPositionY = Mod::get()->getSettingValue<double>("yPositionLabel");
 
-
-			// Progress Bar
-			m_fields->progressBar->setPosition(ccp(progressBarPositionX, progressBarPositionY));
-			m_fields->progressBar->setVisible(progressBarState);
-			m_fields->progressBar->setChildColor(ccColor3B{progressBarColor.r, progressBarColor.g, progressBarColor.b});
-			// Label Percent
-			m_fields->percentLabel->setPosition(ccp(progressLabelPositionX, progressLabelPositionY));
-			m_fields->percentLabel->setVisible(percentLabelState);
-			m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
-
+			if (m_level->isPlatformer())
+			{
+				if (m_fields->percentLabel->getFntFile() != "bigFont.fnt")
+				{
+					m_fields->percentLabel->setFntFile("bigFont.fnt");
+					m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
+				}
+				m_fields->progressBar->setVisible(false);
+				m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
+			}
+			else
+			{
+				if (m_fields->percentLabel->getFntFile() != "bigFont.fnt")
+				{
+					m_fields->percentLabel->setFntFile("bigFont.fnt");
+					// Progress Bar
+					m_fields->progressBar->setPosition(ccp(progressBarPositionX, progressBarPositionY));
+					m_fields->progressBar->setVisible(progressBarState);
+					m_fields->progressBar->setChildColor(ccColor3B{progressBarColor.r, progressBarColor.g, progressBarColor.b});
+					// Label Percent
+					m_fields->percentLabel->setPosition(ccp(progressLabelPositionX, progressLabelPositionY));
+					m_fields->percentLabel->setVisible(percentLabelState);
+					m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
+				}
+				else
+				{
+					// Progress Bar
+					m_fields->progressBar->setPosition(ccp(progressBarPositionX, progressBarPositionY));
+					m_fields->progressBar->setVisible(progressBarState);
+					m_fields->progressBar->setChildColor(ccColor3B{progressBarColor.r, progressBarColor.g, progressBarColor.b});
+					// Label Percent
+					m_fields->percentLabel->setPosition(ccp(progressLabelPositionX, progressLabelPositionY));
+					m_fields->percentLabel->setVisible(percentLabelState);
+					m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
+				}
+			}
 		}
 	}
 };

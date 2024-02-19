@@ -11,6 +11,9 @@ Nobody, but I decided to make a mod to do it anyway (btw it's my first mod, so b
 - Change the position of the progress bar label
 - Change the visibility of the progress bar label
 
+## Warning
+- **THIS MOD DOES NOT OVERRIDE THE LABEL COLOR IF YOU ARE USING THE "<cr>Golden Best</cr>" MOD**
+
 ## Usage
 - On the pause menu, you have the litle `edit button`
 
