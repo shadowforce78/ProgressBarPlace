@@ -1,12 +1,13 @@
 {
 	"geode": "2.0.0-beta.19",
 	"gd": "2.204",
-	"version": "v1.0.0-beta.5",
+	"version": "v1.0.1",
 	"id": "saumondeluxe.progressbarplace",
 	"name": "ProgressBarPlace",
 	"early-load": true,
 	"developer": "SaumonDeLuxe",
 	"description": "This mod will allow you to edit the progress bar and the label as you want",
+	"repository": "https://github.com/shadowforce78/ProgressBarPlace",
 	"settings": {
 		"xPositionBar": {
 			"name": "X Bar",
@@ -73,6 +74,7 @@
 		"files": [
 			"ressources/Screen1.png"
 		]
+		
 	}
 	
 }

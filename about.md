@@ -20,3 +20,4 @@ Nobody, but I decided to make a mod to do it anyway (btw it's my first mod, so b
 
 ## Credits
 - Thanks to [**FIREE**](user:6253758) for helping me with the code.
+- Thanks to [**RayDeeUx**](https://github.com/RayDeeUx) for the nice mod logo.
