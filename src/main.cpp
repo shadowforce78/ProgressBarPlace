@@ -36,8 +36,7 @@ class $modify(PlayLayer)
 	CCSprite *progressBar;
 	CCLabelBMFont *percentLabel;
 
-	bool progressBarState = Mod::get()->getSettingValue<bool>("progressBarState");
-	ccColor3B progressBarColor = Mod::get()->getSettingValue<ccColor3B>("progressBarColor");
+
 
 	void postUpdate(float p0)
 	{
@@ -64,8 +63,10 @@ class $modify(PlayLayer)
 		else
 		{
 
+			auto progressBarColor = Mod::get()->getSettingValue<ccColor3B>("progressBarColor");
+
 			// m_fields->progressBar->setVisible(progressBarState);
-			m_fields->progressBar->setColor(progressBarColor);
+			m_fields->progressBar->setChildColor(ccColor3B{progressBarColor.r, progressBarColor.g, progressBarColor.b});
 			// m_fields->percentLabel->setVisible(progressBarState);
 		}
 	}
