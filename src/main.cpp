@@ -28,15 +28,11 @@ class $modify(EditBtn, PauseLayer)
 #include <Geode/modify/PlayLayer.hpp>
 #include "Utils.hpp"
 
-
-
 class $modify(PlayLayer)
 {
-	
+
 	CCSprite *progressBar;
 	CCLabelBMFont *percentLabel;
-
-
 
 	void postUpdate(float p0)
 	{
@@ -64,10 +60,24 @@ class $modify(PlayLayer)
 		{
 
 			auto progressBarColor = Mod::get()->getSettingValue<ccColor3B>("progressBarColor");
+			auto percentLabelColor = Mod::get()->getSettingValue<ccColor3B>("percentLabelColor");
+			auto progressBarState = Mod::get()->getSettingValue<bool>("progressBarState");
+			auto percentLabelState = Mod::get()->getSettingValue<bool>("percentLabelState");
+			float progressBarPositionX = Mod::get()->getSettingValue<double>("xPositionBar");
+			float progressBarPositionY = Mod::get()->getSettingValue<double>("yPositionBar");
+			float progressLabelPositionX = Mod::get()->getSettingValue<double>("xPositionLabel");
+			float progressLabelPositionY = Mod::get()->getSettingValue<double>("yPositionLabel");
 
-			// m_fields->progressBar->setVisible(progressBarState);
+
+			// Progress Bar
+			m_fields->progressBar->setPosition(ccp(progressBarPositionX, progressBarPositionY));
+			m_fields->progressBar->setVisible(progressBarState);
 			m_fields->progressBar->setChildColor(ccColor3B{progressBarColor.r, progressBarColor.g, progressBarColor.b});
-			// m_fields->percentLabel->setVisible(progressBarState);
+			// Label Percent
+			m_fields->percentLabel->setPosition(ccp(progressLabelPositionX, progressLabelPositionY));
+			m_fields->percentLabel->setVisible(percentLabelState);
+			m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
+
 		}
 	}
 };

@@ -1,41 +1,71 @@
 {
 	"geode": "2.0.0-beta.19",
 	"gd": "2.204",
-	"version": "v1.0.0-beta.1",
+	"version": "v1.0.0-beta.5",
 	"id": "saumondeluxe.progressbarplace",
 	"name": "ProgressBarPlace",
 	"developer": "SaumonDeLuxe",
 	"description": "This mod will allow you to move the progress bar where you want on the screen",
 	"settings": {
-		"xPosition": {
-			"name": "X",
-            "type": "float",
-            "default": 0,
-            "min": -10,
-            "max": 10,
-            "control": {
-                "slider": true
-            }
+		"xPositionBar": {
+			"name": "X Bar",
+			"type": "float",
+			"default": 275,
+			"min": 105,
+			"max": 462,
+			"control": {
+				"slider": true
+			}
 		},
-		"yPosition": {
-			"name": "Y",
-            "type": "float",
-            "default": 0,
-            "min": -10,
-            "max": 10,
-            "control": {
-                "slider": true
-            }
+		"yPositionBar": {
+			"name": "Y Bar",
+			"type": "float",
+			"default": 312,
+			"min": 0,
+			"max": 312,
+			"control": {
+				"slider": true
+			}
 		},
-		"progressBarState":{
+		"xPositionLabel": {
+			"name": "X Label",
+			"type": "float",
+			"default": 394.500,
+			"min": 0,
+			"max": 520.500,
+			"control": {
+				"slider": true
+			}
+		},
+		"yPositionLabel": {
+			"name": "Y Label",
+			"type": "float",
+			"default": 312,
+			"min": 0,
+			"max": 312,
+			"control": {
+				"slider": true
+			}
+		},
+		"progressBarState": {
 			"name": "Progress Bar",
 			"type": "bool",
-			"default": false
+			"default": true
 		},
-		"progressBarColor":{
+		"percentLabelState": {
+			"name": "Percent Label",
+			"type": "bool",
+			"default": true
+		},
+		"progressBarColor": {
 			"name": "Color of the progress bar",
 			"type": "color",
-			"default": "#FF0000"
+			"default": "#FFFFFF"
+		},
+		"percentLabelColor": {
+			"name": "Color of the percent label",
+			"type": "color",
+			"default": "#FFFFFF"
 		}
 	}
 }
