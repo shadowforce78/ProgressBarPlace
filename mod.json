@@ -4,8 +4,9 @@
 	"version": "v1.0.0-beta.5",
 	"id": "saumondeluxe.progressbarplace",
 	"name": "ProgressBarPlace",
+	"early-load": true,
 	"developer": "SaumonDeLuxe",
-	"description": "This mod will allow you to move the progress bar where you want on the screen",
+	"description": "This mod will allow you to edit the progress bar and the label as you want",
 	"settings": {
 		"xPositionBar": {
 			"name": "X Bar",
@@ -67,5 +68,11 @@
 			"type": "color",
 			"default": "#FFFFFF"
 		}
+	},
+	"resources": {
+		"files": [
+			"ressources/Screen1.png"
+		]
 	}
+	
 }

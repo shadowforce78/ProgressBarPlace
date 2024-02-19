@@ -19,6 +19,7 @@ class $modify(EditBtn, PauseLayer)
 		auto btnSprite = CCSprite::createWithSpriteFrameName("GJ_editModeBtn_001.png");
 		auto menu = this->getChildByID("center-button-menu");
 		auto btn = CCMenuItemSpriteExtra::create(btnSprite, this, menu_selector(EditBtn::EditFunction));
+		btn->setPosition(ccp(-245, 148));
 		btn->setID("edit-button"_spr);
 		menu->addChild(btn);
 		menu->updateLayout();
