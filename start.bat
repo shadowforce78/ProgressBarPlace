@@ -7,9 +7,6 @@ echo "Geometry Dash stopped!"
 echo "Starting build...."
 cmake --build build --config RelWithDebInfo
 echo "Windows build complete!"
-cmake --build build -p android64 --config RelWithDebInfo
-echo "Android build complete!"
-echo "All builds complete!"
 echo "Do you want to start Geometry Dash? (y/n)"
 set /p choice=
 if %choice% == y goto start
