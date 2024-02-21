@@ -67,16 +67,29 @@ class $modify(PlayLayer)
 			float progressBarPositionY = Mod::get()->getSettingValue<double>("yPositionBar");
 			float progressLabelPositionX = Mod::get()->getSettingValue<double>("xPositionLabel");
 			float progressLabelPositionY = Mod::get()->getSettingValue<double>("yPositionLabel");
+			bool ignorePalteformerPosition = Mod::get()->getSettingValue<bool>("plateformerLabelPos");
 
 			if (m_level->isPlatformer())
 			{
+				m_fields->progressBar->setVisible(false);
+
+				if (ignorePalteformerPosition == true)
+				{
+					m_fields->percentLabel->setPositionX(264.500f);
+					m_fields->percentLabel->setPositionY(312.f);
+					m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
+				}else{
+					m_fields->percentLabel->setPosition(ccp(progressLabelPositionX, progressLabelPositionY));
+					m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
+				}
+
 				if (m_fields->percentLabel->getFntFile() != "bigFont.fnt")
 				{
 					m_fields->percentLabel->setFntFile("bigFont.fnt");
 					m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
 				}
-				m_fields->progressBar->setVisible(false);
-				m_fields->percentLabel->setColor(ccColor3B{percentLabelColor.r, percentLabelColor.g, percentLabelColor.b});
+
+				
 			}
 			else
 			{

@@ -32,9 +32,9 @@
 		"xPositionLabel": {
 			"name": "X Label",
 			"type": "float",
-			"default": 394.500,
+			"default": 394.5,
 			"min": 0,
-			"max": 520.500,
+			"max": 520.5,
 			"control": {
 				"slider": true
 			}
@@ -48,6 +48,11 @@
 			"control": {
 				"slider": true
 			}
+		},
+		"plateformerLabelPos": {
+			"name": "Default Plateformer Label Position",
+			"type": "bool",
+			"default": true
 		},
 		"progressBarState": {
 			"name": "Progress Bar",
@@ -74,7 +79,5 @@
 		"files": [
 			"ressources/Screen1.png"
 		]
-		
 	}
-	
 }
