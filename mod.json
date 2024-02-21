@@ -72,11 +72,22 @@
 			"type": "color",
 			"default": "#FFFFFF"
 		},
+		"progressBarRainbow": {
+			"name": "Rainbow progress bar",
+			"type": "bool",
+			"default": false
+		},
 		"percentLabelColor": {
 			"name": "Color of the percent label",
 			"type": "color",
 			"default": "#FFFFFF"
+		},
+		"percentLabelRainbow": {
+			"name": "Rainbow percent label",
+			"type": "bool",
+			"default": false
 		}
+
 	},
 	"resources": {
 		"files": [
