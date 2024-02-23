@@ -15,11 +15,13 @@ class $modify(EditBtn, PauseLayer)
 	void customSetup()
 	{
 		PauseLayer::customSetup();
-		auto btnSprite = CCSprite::createWithSpriteFrameName("GJ_editModeBtn_001.png");
+		// auto btnSprite = CCSprite::createWithSpriteFrameName("GJ_editModeBtn_001.png");
+		auto btnSprite = CCSprite::create("iconload.png"_spr);
 		auto menu = this->getChildByID("center-button-menu");
 		auto btn = CCMenuItemSpriteExtra::create(btnSprite, this, menu_selector(EditBtn::EditFunction));
 		btn->setPosition(ccp(-245, 148));
 		btn->setID("edit-button"_spr);
+		// btn->setScale(1.f);
 		menu->addChild(btn);
 		menu->updateLayout();
 	};

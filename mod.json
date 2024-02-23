@@ -91,7 +91,8 @@
 	},
 	"resources": {
 		"files": [
-			"ressources/Screen1.png"
+			"ressources/Screen1.png",
+			"ressources/iconload.png"
 		]
 	}
 }
